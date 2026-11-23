@@ -1,0 +1,51 @@
+# ---- Environment ----
+.env
+.env.local
+.env.*.local
+
+# ---- Node ----
+node_modules/
+dist/
+build/
+.cache/
+*.log
+
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+.eggs/
+dist/
+*.egg
+.pytest_cache/
+.mypy_cache/
+htmlcov/
+
+# ---- Django ----
+backend/staticfiles/
+backend/media/
+
+# ---- Electron ----
+apps/desktop/release*/
+apps/desktop/dist-electron/
+apps/desktop/out/
+
+# ---- IDE ----
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Database ----
+*.sqlite3

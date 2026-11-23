@@ -1,0 +1,71 @@
+{
+  "name": "@income/desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bright Future Pre-School Desktop Application",
+  "author": "Bright Future Pre-School",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev:electron": "electron . --no-sandbox",
+    "build:electron": "tsc -p tsconfig.electron.json",
+    "build:installer": "npx electron-builder --win nsis --x64 --publish never"
+  },
+  "build": {
+    "appId": "com.income.schoolmanagement",
+    "productName": "Bright Future Pre-School",
+    "copyright": "Copyright © 2024 Bright Future Pre-School",
+    "electronVersion": "33.2.1",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "assets/icon.png"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "node_modules/electron-store/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "requestedExecutionLevel": "asInvoker",
+      "signingHashAlgorithms": null,
+      "sign": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Bright Future Pre-School",
+      "installerIcon": "assets/installer-icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "license": "../../LICENSE",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false
+    },
+    "extraMetadata": {
+      "main": "dist-electron/main.js"
+    }
+  },
+  "dependencies": {
+    "electron-store": "8.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.9.1",
+    "electron": "33.2.1",
+    "electron-builder": "^24.13.3",
+    "typescript": "5.6.3"
+  }
+}
